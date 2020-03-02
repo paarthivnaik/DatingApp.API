@@ -45,7 +45,7 @@ namespace DatingApp.API
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors(c=>c.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(c=>c.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());//Cors
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
