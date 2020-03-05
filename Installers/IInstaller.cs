@@ -5,6 +5,6 @@ namespace DatingApp.API
 {
     public interface IInstaller
     {
-         void InstallServices(IServiceCollection services,IConfiguration Configuration);
+        void InstallServices(IServiceCollection services, IConfiguration Configuration);
     }
 }

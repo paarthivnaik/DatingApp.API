@@ -21,7 +21,7 @@ namespace DatingApp.API.Data
             if (!verifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
                 return null;
 
-                return user;
+            return user;
         }
 
         private bool verifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
@@ -65,7 +65,7 @@ namespace DatingApp.API.Data
             if (await _context.Users.AnyAsync(x => x.Username == username))
                 return true;
 
-            return true;
+            return false;
         }
     }
 }
