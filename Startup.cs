@@ -34,13 +34,13 @@ namespace DatingApp.API
         {
 
             services.InstallServicesInAssembly(Configuration);
-
+            services.AddCors();
             services.AddControllers().AddNewtonsoftJson(opt =>
             {
                 opt.SerializerSettings.ReferenceLoopHandling =
                  Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
-            services.AddCors();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
