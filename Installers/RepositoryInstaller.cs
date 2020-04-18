@@ -1,4 +1,5 @@
 using DatingApp.API.Data;
+using DatingApp.API.Helpers;
 using DatingApp.API.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +12,7 @@ namespace DatingApp.API.Installers
         {
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository,DatingRepository>();
+            services.AddScoped<LogUserActivity>();
         }
     }
 }
