@@ -12,7 +12,7 @@ namespace DatingApp.API.Installers
         {
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository,DatingRepository>();
-            services.AddScoped<LogUserActivity>();
+            
         }
     }
 }
