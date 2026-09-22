@@ -7,6 +7,7 @@ using AutoMapper;
 using DatingApp.API.Data;
 using DatingApp.API.Helpers;
 using DatingApp.API.Installers;
+using DatingApp.API.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -35,7 +36,8 @@ namespace DatingApp.API
 
             services.InstallServicesInAssembly(Configuration);
             services.AddCors();
-             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+            services.Configure<RateLimitingOptions>(Configuration.GetSection("RateLimiting"));
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddControllers().AddNewtonsoftJson(opt =>
             {
                 opt.SerializerSettings.ReferenceLoopHandling =
@@ -70,6 +72,7 @@ namespace DatingApp.API
             }
             // app.UseHttpsRedirection();
 
+            app.UseRateLimiting();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
